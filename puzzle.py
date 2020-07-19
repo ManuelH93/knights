@@ -56,6 +56,8 @@ knowledge3 = And(
     And(Or(AKnave, AKnight), Not(And(AKnave, AKnight))),
     And(Or(BKnave, BKnight), Not(And(BKnave, BKnight))),
     And(Or(CKnave, CKnight), Not(And(CKnave, CKnight))),
+    Implication(AKnight, BKnave),
+    Implication(AKnave, BKnave),
     Or(
         And(BKnight, CKnave),
         And(BKnave, CKnight)
@@ -67,8 +69,7 @@ knowledge3 = And(
 
 )
 
-#B Knave
-# A and C knights
+
 def main():
     symbols = [AKnight, AKnave, BKnight, BKnave, CKnight, CKnave]
     puzzles = [
