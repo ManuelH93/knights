@@ -66,7 +66,6 @@ knowledge3 = And(
         And(CKnight, AKnight),
         And(CKnave, AKnave)
     )
-
 )
 
 
