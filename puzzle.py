@@ -38,18 +38,12 @@ knowledge2 = And(
     And(Or(AKnave, AKnight), Not(And(AKnave, AKnight))),
     And(Or(BKnave, BKnight), Not(And(BKnave, BKnight))),
     Or(
-        Biconditional(AKnight, And(AKnight, BKnight)),
-        And(
-            Biconditional(AKnave, Not(And(AKnight, BKnight))),
-            Biconditional(AKnave, And(AKnave, AKnight))
-        )
-    ),    
+        And(AKnight, BKnight),
+        And(AKnave, BKnight)
+    ),
     Or(
-        Biconditional(BKnight, And(AKnave, BKnight)),
-        And(
-            Biconditional(BKnave, Not(And(AKnave, BKnight))),
-            Biconditional(BKnave, And(AKnave, BKnave))
-        )
+        And(BKnight, AKnave),
+        And(BKnave, AKnave)
     )
 )
 
@@ -59,10 +53,22 @@ knowledge2 = And(
 # B says "C is a knave."
 # C says "A is a knight."
 knowledge3 = And(
-    # TODO
+    And(Or(AKnave, AKnight), Not(And(AKnave, AKnight))),
+    And(Or(BKnave, BKnight), Not(And(BKnave, BKnight))),
+    And(Or(CKnave, CKnight), Not(And(CKnave, CKnight))),
+    Or(
+        And(BKnight, CKnave),
+        And(BKnave, CKnight)
+    ),
+    Or(
+        And(CKnight, AKnight),
+        And(CKnave, AKnave)
+    )
+
 )
 
-
+#B Knave
+# A and C knights
 def main():
     symbols = [AKnight, AKnave, BKnight, BKnave, CKnight, CKnave]
     puzzles = [
